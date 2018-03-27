@@ -13,10 +13,13 @@ namespace ResearchAndOrdering.Teste
             int verticeStart = 0;
             int verticeEnd = 3;
 
-            MatrixIncidence matrixIncidence = new MatrixIncidence(5, 3);
+            MatrixIncidence matrixIncidence = new MatrixIncidence(5, 4);
             matrixIncidence.AddEdge(0, 1);
-            matrixIncidence.AddEdge(1, 2);
-            matrixIncidence.AddEdge(2, 3);
+            matrixIncidence.AddEdge(0, 2);
+
+            matrixIncidence.AddEdge(2, 4);
+            matrixIncidence.AddEdge(4, 3);
+            
             matrixIncidence.ToConsole();
             Graph<MatrixIncidence> graph = new Graph<MatrixIncidence>(matrixIncidence);
             LinkedList<int> router = new Simple<MatrixIncidence>(graph).run(verticeStart, verticeEnd);

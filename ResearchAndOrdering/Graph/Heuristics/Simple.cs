@@ -54,7 +54,6 @@ namespace ResearchAndOrdering.Graph
                                     queueRouter.Enqueue(possibleRouter);
                                 }
                                 vertice = Graph.VerticeCount();
-                                edge = Graph.EdgesCount();
                             }
                         }
                     }
