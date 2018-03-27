@@ -26,7 +26,7 @@ namespace ResearchAndOrdering.Teste
                 Console.WriteLine("::EURECA:::");
                 while(router.Count > 0)
                 {
-                    Console.WriteLine(string.Format("vertice[{0}]", router.First()));
+                    Console.Write(string.Format(" -> vertice[{0}]", router.First()));
                     router.RemoveFirst();
                 }
             }

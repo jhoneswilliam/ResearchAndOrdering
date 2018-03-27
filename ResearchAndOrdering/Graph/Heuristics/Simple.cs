@@ -8,13 +8,11 @@ namespace ResearchAndOrdering.Graph
 {
     class Simple<Estructure> where Estructure : MatrixIncidence
     {
-        public Graph<Estructure> Graph { get; set; }
-        //public Queue<LinkedList<int>> QueueRouter { get; set; }
+        public Graph<Estructure> Graph { get; set; }        
 
         public Simple(Graph<Estructure> graph)
         {
-            Graph = graph;
-            //QueueRouter = new Queue<LinkedList<int>>();
+            Graph = graph;            
         }
 
         public LinkedList<int> run(int verticeStart, int verticeEnd)
@@ -35,11 +33,11 @@ namespace ResearchAndOrdering.Graph
             while (queueRouter.Count > 0)
             {
                 possibleRouter = queueRouter.Dequeue();
-                int lastVertice = possibleRouter.Last();
+                int lastVerticeOfRouter = possibleRouter.Last();
 
                 for (int edge = 0; edge < Graph.EdgesCount(); edge++)
                 {
-                    if (Graph.GraphEstructure.Matrix[lastVertice, edge] > 0)
+                    if (Graph.GraphEstructure.Matrix[lastVerticeOfRouter, edge] > 0)
                     {
                         for (int vertice = 0; vertice < Graph.VerticeCount(); vertice++)
                         {
@@ -47,7 +45,7 @@ namespace ResearchAndOrdering.Graph
                             {
                                 possibleRouter.AddLast(vertice);
 
-                                if (vertice == lastVertice)
+                                if (vertice == verticeEnd)
                                 {
                                     return possibleRouter;
                                 }
@@ -63,34 +61,6 @@ namespace ResearchAndOrdering.Graph
                 }
             }
             return null;
-        }
-
-        //public LinkedList<int> run(int verticeStart, int verticeEnd, string tehs)
-        //{
-        //    for (int edge = 0; edge < Graph.EdgesCount(); edge++)
-        //    {
-        //        if(Graph.GraphEstructure.Matrix[verticeStart, edge] > 0)
-        //        {
-        //            for (int vertice = 0; vertice < Graph.VerticeCount(); vertice++)
-        //            {
-        //                if(Graph.GraphEstructure.Matrix[vertice, edge] > 0)
-        //                {
-        //                    LinkedList<int> possibleRouter = new LinkedList<int>(router);
-        //                    possibleRouter.AddLast(vertice);
-        //                    QueueRouter.Enqueue(possibleRouter);
-
-        //                    vertice = Graph.VerticeCount();
-        //                    edge = Graph.EdgesCount();
-        //                }
-        //            }
-        //        }
-        //    }
-
-
-
-        //    return run(router, verticeEnd);
-        //}
-
-
+        }     
     }
 }
