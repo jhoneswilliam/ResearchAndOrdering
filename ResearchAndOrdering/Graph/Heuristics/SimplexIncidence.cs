@@ -30,7 +30,7 @@ namespace ResearchAndOrdering.Graph
                     if (verticeP != verticeD && router.Contains(verticeD) == false && Graph.GraphEstructure.Matrix[verticeP, verticeD] > 0)
                     {   
                         router.AddLast(verticeD);
-                        if (verticeEnd == verticeEnd)
+                        if (verticeEnd == verticeD)
                         {
                             return router;
                         }
