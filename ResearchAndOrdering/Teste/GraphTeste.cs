@@ -7,27 +7,26 @@ namespace ResearchAndOrdering.Teste
 {
     class GraphTeste
     {
-        public static string Simple()
+        public static string Simplex()
         {
-
             int verticeStart = 0;
-            int verticeEnd = 3;
+            int verticeEnd = 2;
 
-            MatrixIncidence matrixIncidence = new MatrixIncidence(5, 4);
-            matrixIncidence.AddEdge(0, 1);
+            MatrixAdjacency matrixIncidence = new MatrixAdjacency(5);
             matrixIncidence.AddEdge(0, 2);
+            //matrixIncidence.AddEdge(0, 1);
+            //matrixIncidence.AddEdge(1, 3);
+            //matrixIncidence.AddEdge(3, 4);
 
-            matrixIncidence.AddEdge(2, 4);
-            matrixIncidence.AddEdge(4, 3);
-            
             matrixIncidence.ToConsole();
-            Graph<MatrixIncidence> graph = new Graph<MatrixIncidence>(matrixIncidence);
-            LinkedList<int> router = new Simple<MatrixIncidence>(graph).run(verticeStart, verticeEnd);
+
+            Graph<MatrixAdjacency> graph = new Graph<MatrixAdjacency>(matrixIncidence);
+            LinkedList<int> router = new Simplex<MatrixAdjacency>(graph).run(verticeStart, verticeEnd);
             Console.WriteLine("==============================================");
-            if(router != null)
+            if (router != null)
             {
                 Console.WriteLine("::EURECA:::");
-                while(router.Count > 0)
+                while (router.Count > 0)
                 {
                     Console.Write(string.Format(" -> vertice[{0}]", router.First()));
                     router.RemoveFirst();

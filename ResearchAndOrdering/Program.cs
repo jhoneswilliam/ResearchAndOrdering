@@ -11,7 +11,7 @@ namespace ResearchAndOrdering
     {
         static void Main(string[] args)
         {
-            Console.Write(GraphTeste.Simple());
+            Console.Write(GraphTeste.Simplex());
             Console.ReadKey();
         }
     }
