@@ -43,13 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graph\Estrutures\MatrixAdjacency.cs" />
-    <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Estrutures\IGraphEstructure.cs" />
     <Compile Include="Graph\Estrutures\MatrixIncidence.cs" />
     <Compile Include="Graph\Heuristics\SimplexIncidence.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Teste\GraphTeste.cs" />
+    <Compile Include="View\MatrixIncidenceToConsole.cs" />
+    <Compile Include="View\MatrixAdjacencyToConsole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

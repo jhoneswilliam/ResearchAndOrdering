@@ -33,37 +33,5 @@ namespace ResearchAndOrdering.Graph
         {
             Matrix = new int[this.VerticeCount() + 1, this.EdgesAmmount];
         }
-
-        public void ToConsole()
-        {
-
-            Console.Write("\t");
-            Console.Write("|");
-            Console.Write("\t");
-
-
-            for (int edges = 0; edges < EdgesCount(); edges++)
-            {
-                Console.Write(String.Format("A{0}", edges));
-                Console.Write("\t");
-            }
-
-            Console.WriteLine("|");
-
-
-            for (int vertice = 0; vertice < VerticeCount(); vertice++)
-            {
-                Console.Write(String.Format("V{0}", vertice));
-                Console.Write("\t");
-                Console.Write("|");
-                Console.Write("\t");
-                for (int edges = 0; edges < EdgesCount(); edges++)
-                {
-                    Console.Write(Matrix[vertice, edges]);
-                    Console.Write("\t");
-                }
-                Console.WriteLine("|");
-            }
-        }
     }
 }

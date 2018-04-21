@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace ResearchAndOrdering.Graph
 {
-      class Simplex<Estructure> where Estructure : MatrixAdjacency
+    public class Simplex
     {
-        public Graph<Estructure> Graph { get; set; }
+        public MatrixAdjacency Graph { get; set; }
 
-        public Simplex(Graph<Estructure> graph)
+        public Simplex(MatrixAdjacency graph)
         {
             Graph = graph;
         }
@@ -19,24 +19,23 @@ namespace ResearchAndOrdering.Graph
             fistRouter.AddLast(verticeStart);
             queueRouter.Enqueue(fistRouter);
 
-            //visited[verticeStart] = true;
-
             while (queueRouter.Count > 0)
             {
                 LinkedList<int> router = queueRouter.Dequeue();
-                int verticeP = router.Last();
-                for (int verticeD = 0; verticeD < Graph.VerticeCount(); verticeD++)
+                int verticeWalkStart = router.Last();
+                for (int verticeWalkEnd = 0; verticeWalkEnd < Graph.VerticeCount(); verticeWalkEnd++)
                 {
-                    if (verticeP != verticeD && router.Contains(verticeD) == false && Graph.GraphEstructure.Matrix[verticeP, verticeD] > 0)
-                    {   
-                        router.AddLast(verticeD);
-                        if (verticeEnd == verticeD)
+                    if (verticeWalkStart != verticeWalkEnd && router.Contains(verticeWalkEnd) == false && Graph.Matrix[verticeWalkStart, verticeWalkEnd] > 0)
+                    {
+                        LinkedList<int> newRouter = new LinkedList<int>(router);
+                        newRouter.AddLast(verticeWalkEnd);
+                        if (verticeEnd == verticeWalkEnd)
                         {
-                            return router;
+                            return newRouter;
                         }
                         else
-                        {   
-                            queueRouter.Enqueue(router);
+                        {
+                            queueRouter.Enqueue(newRouter);
                         }
                     }
                 }
